@@ -1,0 +1,29 @@
+{
+  "name": "kelly-proxy",
+  "version": "1.0.0",
+  "description": "Proxy server for Abibas ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abibasss/kelly-proxy.git"
+  },
+  "author": "Kelly Hudiono",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abibasss/kelly-proxy/issues"
+  },
+  "homepage": "https://github.com/abibasss/kelly-proxy#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http-proxy-middleware": "^0.19.1"
+  }
+}
