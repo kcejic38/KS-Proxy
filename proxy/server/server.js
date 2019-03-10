@@ -22,6 +22,8 @@ app.use(function(req, res, next) {
 });
 
 
+const PRODUCT_VIEW_PROD_IP = 'http://35.163.130.251:8002';
+
 app.use(express.static(path.join(__dirname, '/../public')));
 
 app.use('/shoes',
@@ -31,7 +33,7 @@ app.use('/shoes',
   })
 );
 
-app.use('/shoes/:shoeId',
+app.use('/shoes /:shoeId',
   proxy({
     target: "http://127.0.0.1:8001",
     changeOrigin: true
@@ -54,14 +56,21 @@ app.use('/shares/:id',
 
 app.use('/products/:model',
   proxy({
-    target: "http://127.0.0.1:8002",
+    target: PRODUCT_VIEW_PROD_IP,
+    changeOrigin: true
+  })
+);
+
+app.use('/shoe/:shoeId',
+  proxy({
+    target: PRODUCT_VIEW_PROD_IP,
     changeOrigin: true
   })
 );
 
 app.use('/images/:imageId',
   proxy({
-    target: "http://127.0.0.1:8002",
+    target: PRODUCT_VIEW_PROD_IP,
     changeOrigin: true
   })
 );

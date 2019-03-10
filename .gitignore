@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+
+.bash_logout
+.bash_profile
+.bashrc
+.config/
+.nvm/
+.ssh/
