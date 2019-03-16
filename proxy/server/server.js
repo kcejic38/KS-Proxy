@@ -1,3 +1,5 @@
+require('newrelic');
+
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
@@ -23,8 +25,13 @@ app.use(function(req, res, next) {
 
 
 const PRODUCT_VIEW_PROD_IP = 'http://35.163.130.251:8002';
+const RATINGS_AND_REVIEWS_PROD_URL = 'http://ec2-54-67-95-154.us-west-1.compute.amazonaws.com:8003';
 
 app.use(express.static(path.join(__dirname, '/../public')));
+
+app.get('/loaderio-6041c8c8eaacf008b60025f3cf35c446', (req, res) => {
+  res.send('loaderio-6041c8c8eaacf008b60025f3cf35c446');
+});
 
 app.use('/shoes',
   proxy({
@@ -68,7 +75,7 @@ app.use('/shoe/:shoeId',
   })
 );
 
-app.use('/images/:imageId',
+app.use('/images',
   proxy({
     target: PRODUCT_VIEW_PROD_IP,
     changeOrigin: true
@@ -77,7 +84,7 @@ app.use('/images/:imageId',
 
 app.use('/reviews',
   proxy({
-    target: "http://127.0.0.1:8003",
+    target: RATINGS_AND_REVIEWS_PROD_URL,
     changeOrigin: true
   })
 );

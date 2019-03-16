@@ -67,3 +67,7 @@ typings/
 .config/
 .nvm/
 .ssh/
+
+proxy/config.js
+
+.DS_Store
